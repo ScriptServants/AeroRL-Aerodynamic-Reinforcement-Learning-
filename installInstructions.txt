@@ -1,0 +1,5 @@
+1:Install Conda
+    -getCondaInstaller.sh will download the conda installer
+2:run setup.sh
+3:do 'conda activate airsim'
+4:runEnv.sh to run the environment and run runPython.sh to run the python code
