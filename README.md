@@ -21,7 +21,7 @@ Our primary focus is on creating a robust drone model capable of navigating thro
 
 4. **Run the AirSim Environment and Python Code**
    
-   In one terminal run run <span style="color:red;">runEnv.sh</span> to start the AirSim environment.
+   In one terminal run run runEnv.sh to start the AirSim environment.
          ./runEnv.sh
-   In another terminal <span style="color:red;">runPython.sh</span> to run the Python code for the RL agent
+   In another terminal unPython.sh to run the Python code for the RL agent
          ./runPython.sh
