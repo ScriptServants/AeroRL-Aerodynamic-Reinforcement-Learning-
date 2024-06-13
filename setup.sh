@@ -17,4 +17,3 @@ sed '5s/$/ -graphicsadapter=1/' ./AirSimNH/LinuxNoEditor/AirSimNH.sh > file.tmp
 chmod 740 file.tmp
 mv file.tmp ./AirSimNH/LinuxNoEditor/AirSimNH.sh
 
-git clone https://github.com/batuhan3526/AirSim-PyTorch-Drone-DDQN-Agent.git
