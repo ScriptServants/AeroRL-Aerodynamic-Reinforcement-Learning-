@@ -1,0 +1,5 @@
+TEST, reward: -10.114806821482388, score: -202.6347332752418, total steps: 5578
+TEST, reward: -5.80728136594251, score: -202.87043083569455, total steps: 11238
+TEST, reward: -332.646865900175, score: -332.646865900175, total steps: 18769
+TEST, reward: -100, score: -59.62591042101527, total steps: 26387
+TEST, reward: -15.21250204269533, score: -201.1875144232718, total steps: 35167
