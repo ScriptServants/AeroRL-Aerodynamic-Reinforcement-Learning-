@@ -2240,3 +2240,5 @@ TEST, reward: -100, score: -100, total steps: 6219
 TEST, reward: -100, score: -100, total steps: 6239
 TEST, reward: -100, score: -100, total steps: 6433
 TEST, reward: -16.659778842964766, score: -201.96508300417432, total steps: 6739
+TEST, reward: -100, score: -100, total steps: 0
+TEST, reward: -17.04006853374666, score: -215.2665286661845, total steps: 0

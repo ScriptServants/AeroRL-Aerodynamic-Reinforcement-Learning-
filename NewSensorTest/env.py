@@ -13,7 +13,7 @@ import random as r
 import torch
 from Heap import Heap
 from PIL import Image
-
+import time
 import numpy as np
 
 import airsim
@@ -36,6 +36,7 @@ class DroneEnv(object):
     """Drone environment class using AirSim python API"""
 
     def __init__(self, useDepth=False, useLidar=False):
+        self.startTime = time.time()
         self.client = airsim.MultirotorClient() #gets the airsim client
         self.dest = DESTS[r.randrange(0, len(DESTS))]
         gps_data = self.client.getMultirotorState().gps_location
@@ -73,7 +74,8 @@ class DroneEnv(object):
             quad_vel.z_val + self.quad_offset[2],
             MOVEMENT_INTERVAL #move in this way for MOVEMENT_INTERVAL seconds
         )
-        collision = self.client.simGetCollisionInfo().has_collided
+        print(f"Time Stamp: {self.client.simGetCollisionInfo().time_stamp}")
+        collision = (self.client.simGetCollisionInfo().has_collided and (time.time() - self.startTime) > 5.0)
 
         time.sleep(0.1)
         gps_data = self.client.getMultirotorState().gps_location
@@ -94,6 +96,7 @@ class DroneEnv(object):
 
     def reset(self):
         self.client.reset() #moves vehicle to default position
+        self.startTime = time.time()
         gps_data = self.client.getMultirotorState().gps_location
         self.last_dist = self.get_distance(XYZ_data(gps_data.latitude, gps_data.longitude, gps_data.altitude))
         self.client.enableApiControl(True)
@@ -111,7 +114,7 @@ class DroneEnv(object):
         self.pastDist = np.zeros(50)
         self.running_reward = 0
         obs, image = self.get_obs(quad_state)
-
+        
         return obs, image
 
     def get_obs(self, quad_state):
