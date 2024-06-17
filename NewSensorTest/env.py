@@ -216,6 +216,7 @@ class DroneEnv(object):
             # Reward for reaching the goal
             if dist < 1:
                 reward += 1000  
+                newDest = self.dest
                 while newDest == self.dest:
                     newDest = DESTS[r.randrange(0,len(DESTS))]
                 self.dest = newDest
